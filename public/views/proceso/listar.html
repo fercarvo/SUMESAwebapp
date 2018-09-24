@@ -1,0 +1,82 @@
+<ol class="breadcrumb">
+    <li ui-sref-active="active" class="breadcrumb-item">
+        <a >Procesos </a>
+    </li>
+</ol>
+<div>
+    <table id="procesos" style="width:100%"> </table>
+</div>
+
+
+<div class="modal fade" id="visualizar_proceso_modal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5>Hoja de Ruta</h5>               
+        </div>
+
+        <div class="modal-body">
+            <style>
+                .form-group label {
+                    font-weight: bold;
+                }
+            </style>
+
+                <table class="table table-bordered table-striped">
+
+                    <tbody style="text-align:left;">
+                        <tr>
+                            <td class="">Proceso: </td>
+                            <td>{{proceso.tipo_proceso}}</td>
+                        </tr>
+                        <tr>
+                            <td class="">Producto: </td>
+                            <td>{{proceso.producto}}</td>
+                        </tr>
+                        <tr>
+                            <td>Linea: </td>
+                            <td>{{proceso.linea}}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha Inicio: </td>
+                            <td>{{proceso.fecha_inicio}}</td>
+                        </tr> 
+                        <tr>
+                            <td>Horas Asignadas: </td>
+                            <td>{{proceso.horas_asignadas}}</td>
+                        </tr> 
+                        <tr>
+                            <td>Area: </td>
+                            <td>{{proceso.area}}</td>
+                        </tr>
+                        <tr>
+                            <td>Procentaje Avance: </td>
+                            <td> 
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped" role="progressbar" ng-style="style_avance" aria-valuenow="{{proceso.porcentaje_avance}}" aria-valuemin="3" aria-valuemax="100">{{proceso.porcentaje_avance}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Procentaje Retraso: </td>
+                            <td>
+                                <div class="progress">
+                                    <div ng-class="class_retraso" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{proceso.porc_atraso}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="display: none;"> 
+                            <td>Nuevo stock: </td>
+                            <td><input form="formUpdate" ng-model="cantidad" min="1" title="Ingrese la nueva cantidad" type="number" style="width:100%;" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" form="crear_siguiente_gestion">Cerrar</button>
+        </div>
+            
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
