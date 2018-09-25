@@ -17,13 +17,12 @@ router.get('/proceso/', login.validarSesion, async function (req, res, next) {
                 vw.proceso as tipo_proceso,
                 vw.producto,
                 vw.lineadesc as linea,
-                to_char(vw.fechainicio, 'DD/MM/YYYY') as fecha_inicio,
+                to_char(coalesce(vw.fechainicio, vw.fechalanzamiento), 'DD/MM/YYYY') as fecha_inicio,
                 vw.porc_ejecucion_proceso as porcentaje_avance,
                 vw.porc_atraso,
                 vw.area,
-                vw.fechainiciotarea,
-                vw.totalasig as horas_asignadas,
-                vw.porc_atraso as atraso_tarea
+                to_char(coalesce(vw.fechainiciotarea, vw.fechalanzamiento), 'DD/MM/YYYY') as fecha_inicio_tarea,
+                vw.totalasig as horas_asignadas
             from vw_consultaprocesos vw
             where vw.ad_client_id = ${Number(grupo)}::integer
         `;

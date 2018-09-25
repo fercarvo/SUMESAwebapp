@@ -35,8 +35,12 @@ angular.module('app', ['ui.router'])
 
         cargarTabla('procesos', '/proceso/', [
             {name: 'tipo_proceso', alias: 'Proceso'},
-            {name: 'linea', alias: 'Linea'},
             {name: 'producto', alias: 'Producto'},
+            {name: 'linea', alias: 'Linea'},
+            {name: 'fecha_inicio', alias: 'Fecha Inicio'},
+            {name: 'porcentaje_avance', alias: '%avance'},
+            {name: 'porc_atraso', alias: '% atraso'},
+            {name: 'area', alias: 'Area asignada'},
             {name: undefined, alias: 'Visualizar', cb: data => `<button class="btn boton-itsc" onclick="visualizar_producto(this)" data-itsc="${escribir(data)}">Mostrar </button>`},
         ])
 
@@ -45,6 +49,7 @@ angular.module('app', ['ui.router'])
             var class_retraso = Number($scope.proceso.porc_atraso) > 25 ? "bg-danger" : "bg-warning"
 
             $scope.style_avance = {width: Number($scope.proceso.porcentaje_avance) < 5 ? 5 : $scope.proceso.porcentaje_avance + '%'}
+            $scope.style_avance = {width: Number($scope.proceso.porc_atraso) < 5 ? 5 : $scope.proceso.porc_atraso + '%'}
             $scope.class_retraso = `progress-bar ${class_retraso}`
             $("#visualizar_proceso_modal").modal('show')
             $scope.$apply();

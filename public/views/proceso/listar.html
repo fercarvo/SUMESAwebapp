@@ -40,14 +40,6 @@
                         <tr>
                             <td>Fecha Inicio: </td>
                             <td>{{proceso.fecha_inicio}}</td>
-                        </tr> 
-                        <tr>
-                            <td>Horas Asignadas: </td>
-                            <td>{{proceso.horas_asignadas}}</td>
-                        </tr> 
-                        <tr>
-                            <td>Area: </td>
-                            <td>{{proceso.area}}</td>
                         </tr>
                         <tr>
                             <td>Procentaje Avance: </td>
@@ -58,17 +50,29 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Procentaje Retraso: </td>
+                            <td>Procentaje Atraso: </td>
                             <td>
                                 <div class="progress">
-                                    <div ng-class="class_retraso" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{proceso.porc_atraso}}%</div>
+                                    <div ng-class="class_retraso" role="progressbar" ng-style="style_retraso" aria-valuenow="{{proceso.porc_atraso}}" aria-valuemin="3" aria-valuemax="100">{{proceso.porc_atraso}}%</div>
                                 </div>
                             </td>
                         </tr>
-                        <tr style="display: none;"> 
+                        <tr>
+                            <td>Area Asignada: </td>
+                            <td>{{proceso.area}}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha Inicio Tarea: </td>
+                            <td>{{proceso.fecha_inicio_tarea}}</td>
+                        </tr>  
+                        <tr>
+                            <td>Horas Asignadas: </td>
+                            <td>{{proceso.horas_asignadas}}</td>
+                        </tr>                          
+                        <!--<tr > 
                             <td>Nuevo stock: </td>
                             <td><input form="formUpdate" ng-model="cantidad" min="1" title="Ingrese la nueva cantidad" type="number" style="width:100%;" /></td>
-                        </tr>
+                        </tr>-->
                     </tbody>
                 </table>
 
