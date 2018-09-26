@@ -41,7 +41,7 @@ angular.module('app', ['ui.router'])
             {name: undefined, alias: '%atraso', cb: data => `<p> ${data.porc_atraso} <span style='background-color: ${color(data.porc_atraso)}; color: ${color(data.porc_atraso)};'> |__| </span> </p>`},
             //{name: 'porc_atraso', alias: '%atraso'},
             //{name: 'porc_atraso_tarea', alias: '%atraso tarea'},
-            {name: undefined, alias: '%atraso', cb: data => `<p> ${data.porc_atraso_tarea} <span style='background-color: ${color(data.porc_atraso_tarea)}; color: ${color(data.porc_atraso_tarea)};'> |__| </span> </p>`},
+            {name: undefined, alias: '%atraso tarea', cb: data => `<p> ${data.porc_atraso_tarea} <span style='background-color: ${color(data.porc_atraso_tarea)}; color: ${color(data.porc_atraso_tarea)};'> |__| </span> </p>`},
             {name: 'area', alias: 'Area asignada'},
             {name: 'tipo_proceso', alias: 'Proceso'},
             {name: 'linea', alias: 'Linea'},
