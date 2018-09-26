@@ -33,24 +33,30 @@ angular.module('app', ['ui.router'])
 
         $scope.proceso = {}
 
-        cargarTabla('procesos', '/proceso/', [
-            {name: 'tipo_proceso', alias: 'Proceso'},
-            {name: 'producto', alias: 'Producto'},
-            {name: 'linea', alias: 'Linea'},
+        cargarTabla('procesos', '/proceso/', [            
+            {name: 'producto', alias: 'Producto'},            
             {name: 'fecha_inicio', alias: 'Fecha Inicio'},
             {name: 'porcentaje_avance', alias: '%avance'},
-            {name: 'porc_atraso', alias: '% atraso'},
+            {name: 'porc_atraso', alias: '%atraso'},
+            {name: 'porc_atraso_tarea', alias: '%atraso tarea'},
             {name: 'area', alias: 'Area asignada'},
+            {name: 'tipo_proceso', alias: 'Proceso'},
+            {name: 'linea', alias: 'Linea'},
             {name: undefined, alias: 'Visualizar', cb: data => `<button class="btn boton-itsc" onclick="visualizar_producto(this)" data-itsc="${escribir(data)}">Mostrar </button>`},
         ])
 
         $scope.$on("proceso_detalle", (evt, data) => {
             $scope.proceso = data
-            var class_retraso = Number($scope.proceso.porc_atraso) > 25 ? "bg-danger" : "bg-warning"
+            var class_retraso = porc => Number(porc) > 25 ? "bg-danger" : "bg-warning"
 
             $scope.style_avance = {width: Number($scope.proceso.porcentaje_avance) < 5 ? 5 : $scope.proceso.porcentaje_avance + '%'}
-            $scope.style_avance = {width: Number($scope.proceso.porc_atraso) < 5 ? 5 : $scope.proceso.porc_atraso + '%'}
-            $scope.class_retraso = `progress-bar ${class_retraso}`
+            
+            $scope.style_retraso = {width: Number($scope.proceso.porc_atraso) < 5 ? 5 : $scope.proceso.porc_atraso + '%'}
+            $scope.class_retraso = `progress-bar ${class_retraso($scope.proceso.porc_atras)}`
+
+            $scope.style_retraso_tarea = {width: Number($scope.proceso.porc_atraso_tarea) < 5 ? 5 : $scope.proceso.porc_atraso_tarea + '%'}
+            $scope.class_retraso_tarea = `progress-bar ${class_retraso($scope.proceso.porc_atraso_tarea)}`
+            
             $("#visualizar_proceso_modal").modal('show')
             $scope.$apply();
 

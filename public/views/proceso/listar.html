@@ -35,12 +35,20 @@
                         </tr>
                         <tr>
                             <td>Linea: </td>
-                            <td>{{proceso.linea}}</td>
+                            <td>{{proceso.linea}}</td> 
+                        </tr>
+                        <tr>
+                            <td>Fecha Lanzamiento: </td>
+                            <td>{{proceso.fecha_lanzamiento}}</td> 
                         </tr>
                         <tr>
                             <td>Fecha Inicio: </td>
                             <td>{{proceso.fecha_inicio}}</td>
                         </tr>
+                        <tr>
+                            <td>Tiempo Asignado: </td>
+                            <td>{{proceso.horas_asignadas}}h</td>
+                        </tr>    
                         <tr>
                             <td>Procentaje Avance: </td>
                             <td> 
@@ -57,6 +65,11 @@
                                 </div>
                             </td>
                         </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped"> Tarea
+
+                    <tbody style="text-align:left;">
                         <tr>
                             <td>Area Asignada: </td>
                             <td>{{proceso.area}}</td>
@@ -64,21 +77,27 @@
                         <tr>
                             <td>Fecha Inicio Tarea: </td>
                             <td>{{proceso.fecha_inicio_tarea}}</td>
-                        </tr>  
+                        </tr>
                         <tr>
-                            <td>Horas Asignadas: </td>
-                            <td>{{proceso.horas_asignadas}}</td>
-                        </tr>                          
+                            <td>Tiempo Asignado: </td>
+                            <td>{{proceso.horas_asignadas_tarea}}</td>
+                        </tr> 
+                        <tr>
+                            <td>% Atraso Tarea: </td>
+                            <td>
+                                <div class="progress">
+                                    <div ng-class="class_retraso_tarea" role="progressbar" ng-style="style_retraso_tarea" aria-valuenow="{{proceso.porc_atraso_tarea}}" aria-valuemin="3" aria-valuemax="100">{{proceso.porc_atraso_tarea}}%</div>
+                                </div>
+                            </td>
+                        </tr>   
+                                              
                         <!--<tr > 
                             <td>Nuevo stock: </td>
                             <td><input form="formUpdate" ng-model="cantidad" min="1" title="Ingrese la nueva cantidad" type="number" style="width:100%;" /></td>
                         </tr>-->
                     </tbody>
                 </table>
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" form="crear_siguiente_gestion">Cerrar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" form="crear_siguiente_gestion">Cerrar</button>
         </div>
             
       </div><!-- /.modal-content -->
