@@ -11,26 +11,28 @@
 <div class="modal fade" id="visualizar_proceso_modal" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-            <h5>Hoja de Ruta</h5>               
-        </div>
-
         <div class="modal-body">
             <style>
                 .form-group label {
                     font-weight: bold;
                 }
+
+                .table td {
+                    padding-bottom: 6px;
+                    padding-top: 6px;
+                    vertical-align: middle;
+                }
             </style>
 
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped"> <h5> Hoja de Ruta </h5>
 
                     <tbody style="text-align:left;">
                         <tr>
-                            <td class="">Proceso: </td>
+                            <td >Proceso: </td>
                             <td>{{proceso.tipo_proceso}}</td>
                         </tr>
                         <tr>
-                            <td class="">Producto: </td>
+                            <td>Producto: </td>
                             <td>{{proceso.producto}}</td>
                         </tr>
                         <tr>
@@ -67,7 +69,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <table class="table table-bordered table-striped"> Tarea
+                <table class="table table-bordered table-striped"> <h5> Tarea </h5>
 
                     <tbody style="text-align:left;">
                         <tr>
@@ -97,7 +99,7 @@
                         </tr>-->
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-default" data-dismiss="modal" form="crear_siguiente_gestion">Cerrar</button>
+                <button type="button" class="btn btn-default boton-itsc" data-dismiss="modal" form="crear_siguiente_gestion">Cerrar</button>
         </div>
             
       </div><!-- /.modal-content -->

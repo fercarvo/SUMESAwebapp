@@ -32,13 +32,16 @@ angular.module('app', ['ui.router'])
     .controller('procesos', ["$scope", "$http", "$state", function($scope, $http, $state){
 
         $scope.proceso = {}
+        var color = data => Number(data) > 25 ? "red" : Number(data) <= 0 ? "green" : "yellow";        
 
         cargarTabla('procesos', '/proceso/', [            
             {name: 'producto', alias: 'Producto'},            
             {name: 'fecha_inicio', alias: 'Fecha Inicio'},
             {name: 'porcentaje_avance', alias: '%avance'},
-            {name: 'porc_atraso', alias: '%atraso'},
-            {name: 'porc_atraso_tarea', alias: '%atraso tarea'},
+            {name: undefined, alias: '%atraso', cb: data => `<p> ${data.porc_atraso} <span style='background-color: ${color(data.porc_atraso)}; color: ${color(data.porc_atraso)};'> |__| </span> </p>`},
+            //{name: 'porc_atraso', alias: '%atraso'},
+            //{name: 'porc_atraso_tarea', alias: '%atraso tarea'},
+            {name: undefined, alias: '%atraso', cb: data => `<p> ${data.porc_atraso_tarea} <span style='background-color: ${color(data.porc_atraso_tarea)}; color: ${color(data.porc_atraso_tarea)};'> |__| </span> </p>`},
             {name: 'area', alias: 'Area asignada'},
             {name: 'tipo_proceso', alias: 'Proceso'},
             {name: 'linea', alias: 'Linea'},
@@ -47,12 +50,12 @@ angular.module('app', ['ui.router'])
 
         $scope.$on("proceso_detalle", (evt, data) => {
             $scope.proceso = data
-            var class_retraso = porc => Number(porc) > 25 ? "bg-danger" : "bg-warning"
+            var class_retraso = porc => Number(porc) > 25 ? "bg-danger" : Number(porc) <= 0 ? "bg-success" : "bg-warning"
 
             $scope.style_avance = {width: Number($scope.proceso.porcentaje_avance) < 5 ? 5 : $scope.proceso.porcentaje_avance + '%'}
             
             $scope.style_retraso = {width: Number($scope.proceso.porc_atraso) < 5 ? 5 : $scope.proceso.porc_atraso + '%'}
-            $scope.class_retraso = `progress-bar ${class_retraso($scope.proceso.porc_atras)}`
+            $scope.class_retraso = `progress-bar ${class_retraso($scope.proceso.porc_atraso)}`
 
             $scope.style_retraso_tarea = {width: Number($scope.proceso.porc_atraso_tarea) < 5 ? 5 : $scope.proceso.porc_atraso_tarea + '%'}
             $scope.class_retraso_tarea = `progress-bar ${class_retraso($scope.proceso.porc_atraso_tarea)}`
