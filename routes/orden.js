@@ -25,7 +25,7 @@ router.get('/proceso/', login.validarSesion, async function (req, res, next) {
                 to_char(coalesce(vw.fechainiciotarea, vw.fechalanzamiento), 'DD/MM/YYYY HH24:MI:SS') as fecha_inicio_tarea,
                 vw.totalasig as horas_asignadas,
                 vw.tiempoasignadotarea as horas_asignadas_tarea,
-                0::numeric as porc_atraso_tarea
+                vw.porc_atraso_tarea as porc_atraso_tarea
             from vw_consultaprocesos vw
             where vw.ad_client_id = ${Number(grupo)}::integer
         `;
