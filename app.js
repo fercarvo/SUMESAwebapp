@@ -3,8 +3,11 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var cors = require('cors')
 
 var app = express();
+
+app.use(cors())
 
 // view engine setup
 app.set('views', `${__dirname}/views`);
