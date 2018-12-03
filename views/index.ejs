@@ -16,11 +16,24 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>ITSC S.A Web APPs  </title>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+      .then(function(reg) {
+        // registration worked
+        console.log('Registration succeeded. Scope is ' + reg.scope);
+      }).catch(function(error) {
+        // registration failed
+        console.log('Registration failed with ' + error);
+      });
+    }
+  </script>
   <!-- Bootstrap core CSS-->
-  <link rel="stylesheet" href="http://sumesades.itsc.ec:3000/vendor/bootstrap.min.css">
-  <link href="http://sumesades.itsc.ec:3000/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="http://sumesades.itsc.ec:3000/vendor/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="http://sumesades.itsc.ec:3000/vendor/responsive.dataTables.min.css">
+  <link rel="stylesheet" href="/vendor/bootstrap.min.css">
+  <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/vendor/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="/vendor/responsive.dataTables.min.css">
 
   <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
 
@@ -49,6 +62,7 @@
         background-color: #fff !important;
     }
   </style>
+  
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" ng-app="app">
@@ -110,17 +124,17 @@
       <i class="fa fa-angle-up"></i>
     </a>
   </div>
-<script src="http://sumesades.itsc.ec:3000/js/EventBus.js"></script>
-<script src="http://sumesades.itsc.ec:3000/vendor/moment.js"></script>
-<script src="http://sumesades.itsc.ec:3000/vendor/angular.min.js"></script>
-<script src="http://sumesades.itsc.ec:3000/vendor/angular-ui-router.min.js"></script>
-<script src="http://sumesades.itsc.ec:3000/vendor/jquery-3.3.1.slim.min.js" ></script>
-<script src="http://sumesades.itsc.ec:3000/vendor/popper.min.js" ></script>
-<script src="http://sumesades.itsc.ec:3000/vendor/bootstrap.min.js" ></script>
+<script src="/js/EventBus.js"></script>
+<script src="/vendor/moment.js"></script>
+<script src="/vendor/angular.min.js"></script>
+<script src="/vendor/angular-ui-router.min.js"></script>
+<script src="/vendor/jquery-3.3.1.slim.min.js" ></script>
+<script src="/vendor/popper.min.js" ></script>
+<script src="/vendor/bootstrap.min.js" ></script>
 
-<script src="http://sumesades.itsc.ec:3000/vendor/jquery.dataTables.min.js"></script>
-<script src="http://sumesades.itsc.ec:3000/vendor/dataTables.responsive.min.js"></script>
-<script src="http://sumesades.itsc.ec:3000/js/sb-admin.js"></script>
+<script src="/vendor/jquery.dataTables.min.js"></script>
+<script src="/vendor/dataTables.responsive.min.js"></script>
+<script src="/js/sb-admin.js"></script>
 <script src="/js/app.js"></script>
 
 <script>

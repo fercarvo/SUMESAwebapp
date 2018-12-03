@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var login = require('./login').router
-var { getSecret } = require('./login')
-var { requestWS } = require('./webservice')
-var { pool, url } = require('../util/DB.js');
+var { pool } = require('../util/DB.js');
 
 /**
  * Ruta que retorna la orden de un id dado
